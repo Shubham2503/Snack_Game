@@ -31,9 +31,17 @@ function Snake() {
         this.tail = [];
       }
     }
+
+    if ( ((this.x === 0) && (this.xspeed == -1)) || ((this.y === 0) && (this.yspeed == -1)) || ((this.x === width - scl) && (this.xspeed == 1)) || ((this.y === height - scl) && (this.yspeed == 1))) {
+        console.log('starting over');
+        //frameRate(0);
+    }
+
   };
 
   this.update = function() {
+    //console.log(this.tail);
+
     for (let i = 0; i < this.tail.length - 1; i++) {
       this.tail[i] = this.tail[i + 1];
     }
